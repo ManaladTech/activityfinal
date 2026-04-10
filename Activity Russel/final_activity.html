@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russel Manalad | Professional Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f0f7ff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --card-bg: #ffffff;
+            --primary-blue: #3498db;
+            --hover-blue: #5dade2;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-color: #e1f0fa;
+            --shadow: 0 4px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 1000;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        
+        .container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 50px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            animation: slideInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-blue);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        
+        .profile-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .about-text .title {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .fb-button {
+            display: inline-block;
+            background-color: #1877F2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .fb-button:hover {
+            opacity: 0.9;
+        }
+
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 18px;
+        }
+
+        thead { background-color: #eaf6ff; }
+        th { color: var(--primary-blue); text-transform: uppercase; font-size: 0.85rem; }
+        tbody tr { border-bottom: 1px solid var(--border-color); }
+        tbody tr:hover { background-color: #f4faff; }
+
+        
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; }
+        input, textarea {
+            padding: 15px;
+            border: 1px solid #d0e3f0;
+            border-radius: 8px;
+            font-family: inherit;
+            background-color: #fbfdff;
+        }
+
+        button {
+            padding: 15px 25px;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        button:hover { background-color: var(--hover-blue); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .profile-wrapper { flex-direction: column; text-align: center; }
+            .container { margin-top: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="about">
+            <div class="profile-wrapper">
+                <img src="file:///C:/Users/russe/Downloads/russel.jfif" alt="Russel Manalad" class="profile-pic">
+                <div class="about-text">
+                    <h1>Russel Manalad</h1>
+                    <p class="title">Smart | Can learn | Students</p>
+                    <p>
+                        Highly valuable person and can learn coding slowly but surely as well as valuing the people I care for.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/russel.manalad.1" target="_blank" class="fb-button">Facebook Profile</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Core Skills & Expertise</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Area of Expertise</th>
+                        <th>Proficiency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Can build a website</td>
+                        <td>Can learn but not a slow learner</td>
+                    </tr>
+                    <tr>
+                        <td>Connection problem solver (able to cable connection)</td>
+                        <td>Average</td>
+                    </tr>
+                    <tr>
+                        <td>Can boot computer or add bootable version of windows</td>
+                        <td>Mid/Average</td>
+                    </tr>
+                    <tr>
+                        <td>Cross-Functional Team Leadership</td>
+                        <td>In Progress</td>
+                    </tr>
+                    <tr>
+                        <td>Product Lifecycle Management</td>
+                        <td>Good and Normal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light);">
+                Have a project idea or a professional inquiry? Feel free to reach out.<br>
+                <strong>Email:</strong> rsmanalad@paterostechnologicalcollege.edu.ph
+            </p>
+            <form class="contact-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Please describe your inquiry..." required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+    </div>
+
+</body>
+</html>
+```

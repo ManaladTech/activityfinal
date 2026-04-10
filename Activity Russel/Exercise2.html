@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+    <style>
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f7f6;
+            animation: fadeIn 1s ease-out;
+        }
+
+        
+        nav {
+            background: #2c3e50;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        
+        .image-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .clickable-img {
+            width: 300px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .clickable-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+
+        button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover { background: #219150; }
+
+        .error { color: #e74c3c; font-size: 0.8rem; display: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#gallery">Gallery</a>
+        <a href="#data">Data Table</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="gallery" class="image-container">
+            <h2>Clickable Image</h2>
+            <a href="https://www.facebook.com/russel.manalad.1/" target="_blank">
+                <img src="file:///C:/Users/russe/Downloads/f28e48ce-c3cc-4198-b48a-6b1fed0955bb.jfif" alt="Full of stars" class="clickable-img">
+            </a>
+            <p><small>Click the image to visit my Facebook</small></p>
+        </section>
+
+        <hr>
+
+        <section id="data">
+            <h2>User Statistics</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numbering</th>
+                        <th>What I am thinking of</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Fixing and adding new component to my motherboard</td>
+                        <td>Still thinking</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>New set of computer parts</td>
+                        <td>In Progress</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Boot/Update drivers of my computer</td>
+                        <td>Planning</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="contact">
+            <h2>Sign Up</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="username">Username (min 3 chars):</label>
+                    <input type="text" id="username" required>
+                    <span id="nameError" class="error">Please enter at least 3 characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" required>
+                    <span id="emailError" class="error">Please enter a valid email address.</span>
+                </div>
+
+                <button type="submit">Submit Registration</button>
+            </form>
+        </section>
+
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            let isValid = true;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            
+            
+            if (username.length < 3) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('nameError').style.display = 'none';
+            }
+
+            
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+
+            if (!isValid) {
+                event.preventDefault(); 
+            } else {
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+
+</body>
+</html>
